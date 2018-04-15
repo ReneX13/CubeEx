@@ -1,0 +1,24 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CubeView.cs">
+    <Files>
+      <File FileName="Assets\Controller.cs" Line="20" Column="3" />
+      <File FileName="Assets\CubeView.cs" Line="33" Column="54" />
+      <File FileName="Assets\AssemblyManager.cs" Line="107" Column="32" />
+      <File FileName="Assets\CamController.cs" Line="45" Column="3" />
+      <File FileName="Assets\CubeSystemManager.cs" Line="21" Column="10" />
+      <File FileName="Assets\MainMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\CubeSetManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\CubeEditorManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\CheckGlueData.cs" Line="1" Column="1" />
+      <File FileName="Assets\DetectMessage.cs" Line="1" Column="1" />
+      <File FileName="Assets\CubeData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Menu Scripts\Cube_Menu_Script.cs" Line="1" Column="1" />
+      <File FileName="Assets\InputFieldManager.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
