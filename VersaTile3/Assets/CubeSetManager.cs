@@ -47,10 +47,12 @@ public class Cube{
 	public int Right;
 	public int Top;
 	public int Bottom;
+	public int Count;
 
 	public Color colour;
 
 	public Cube(){
+		Count = -1;
 		name = "Default";
 	}
 	public void GLUE_HAS_BEEN_DELETED(int g){

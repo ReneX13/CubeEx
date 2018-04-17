@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour {
 
@@ -34,6 +35,6 @@ public class MainMenuManager : MonoBehaviour {
 	}
 	public void RUN_SCENE(){
 		transform.GetComponent<CubeEditorManager> ().Load_To_CSM ();
-		Application.LoadLevel ("1");
+		SceneManager.LoadScene ("1");
 	}
 }

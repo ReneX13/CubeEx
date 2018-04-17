@@ -8,8 +8,8 @@ public class Cube_Menu_Script : MonoBehaviour {
 	bool flag = true;
 	// Use this for initialization
 	void Start () {
-		transform.Find ("Name").GetComponent<InputField>().onValueChanged.AddListener(delegate {ValueChangeCheck(); });
-
+		transform.Find ("Name").GetComponent<InputField>().onValueChanged.AddListener(delegate {ValueChangeCheck_Name(); });
+		//transform.Find ("Count").GetComponent<InputField>().onValueChanged.AddListener(delegate {ValueChangeCheck_Count(); });
 		Dropdown.OptionData newData = new Dropdown.OptionData ();
 		newData.text = "none";
 		setup ();
@@ -51,10 +51,16 @@ public class Cube_Menu_Script : MonoBehaviour {
 		}
 		
 	}
-	void ValueChangeCheck()
+	void ValueChangeCheck_Name()
 	{
 		Cube_Stats.GetComponent<Cube_Button_Script> ().cube.name = transform.Find ("Name").GetComponent<InputField> ().text;
 		Cube_Stats.transform.Find ("Cube_Name_Panel").Find ("Text").GetComponent<Text> ().text = transform.Find ("Name").GetComponent<InputField> ().text;
+
+	}
+	public void ValueChangeCheck_Count()
+	{
+		Cube_Stats.GetComponent<Cube_Button_Script> ().cube.Count = int.Parse(transform.Find ("Count").GetComponent<InputField> ().text);
+		//Cube_Stats.transform.Find ("Cube_Name_Panel").Find ("Text").GetComponent<Text> ().text = transform.Find ("Name").GetComponent<InputField> ().text;
 
 	}
 	public void AddGlue(string glue){
@@ -63,6 +69,7 @@ public class Cube_Menu_Script : MonoBehaviour {
 	public void SetCubeInfo(){
 		transform.Find ("Name").GetComponent<InputField>().text = Cube_Stats.GetComponent<Cube_Button_Script>().cube.name;
 		color.Color = Cube_Stats.GetComponent<Cube_Button_Script> ().cube.colour;
+		transform.Find ("Count").GetComponent<InputField> ().text = Cube_Stats.GetComponent<Cube_Button_Script> ().cube.Count.ToString();
 		transform.Find ("Glue_Panel").Find ("DropDown_Panel").Find ("Dropdown_Front").GetComponent<Dropdown> ().value
 			= Cube_Stats.GetComponent<Cube_Button_Script> ().cube.Front;
 		transform.Find ("Glue_Panel").Find ("DropDown_Panel").Find ("Dropdown_Back").GetComponent<Dropdown> ().value
@@ -75,6 +82,7 @@ public class Cube_Menu_Script : MonoBehaviour {
 			= Cube_Stats.GetComponent<Cube_Button_Script> ().cube.Top;
 		transform.Find ("Glue_Panel").Find ("DropDown_Panel").Find ("Dropdown_Bottom").GetComponent<Dropdown> ().value
 			= Cube_Stats.GetComponent<Cube_Button_Script> ().cube.Bottom;
+
 	}
 	public void DELETE(){
 		transform.Find ("Name").GetComponent<InputField> ().text = "";

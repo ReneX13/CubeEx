@@ -25,7 +25,6 @@ public class CubeSystemManager : MonoBehaviour {
 	public List<_Cube> CubeSet;
 	public List<_Glue> Glues;
 
-
 	// Use this for initialization
 	void Start () {
 	
@@ -84,6 +83,7 @@ public class _Color{
 [System.Serializable]
 public class _Cube{
 	public string name;
+	public int Count;
 	public _Glue Front;
 	public _Glue  Back;
 	public _Glue  Left;
@@ -96,6 +96,7 @@ public class _Cube{
 
 	public _Cube(){
 		name = "NULL";
+		Count = -1;
 		colour = new _Color();
 		Front = new _Glue ();
 		Back = new _Glue ();
@@ -105,9 +106,10 @@ public class _Cube{
 		Bottom = new _Glue ();
 	}
 
-	public _Cube(string n,Color c, _Glue f, _Glue b, _Glue r, _Glue l, _Glue t, _Glue bo){
+	public _Cube(string n, Color c,int count, _Glue f, _Glue b, _Glue r, _Glue l, _Glue t, _Glue bo){
 		//colour.
 		name = n;
+		Count = count;
 		colour = new _Color();
 		colour.setColor(c.r,c.g,c.b,c.a);
 		Front = f;

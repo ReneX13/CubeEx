@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using System.Threading;
 using System.Collections;
@@ -10,6 +11,7 @@ public class AssemblyManager : MonoBehaviour {
 
 	public Text play_pause_text;
 	public bool play_pause_flag = false;
+	public bool discrete_counts_flag = false;
 	public CubeSystemManager setManager;
 	public GameObject CubePrefab;
 	public List<Vector3> nextPositions;
@@ -35,11 +37,10 @@ public class AssemblyManager : MonoBehaviour {
 			MyUpdate();
 			test_counter--;
 		}
-
-
 	}
+
 	public void EDITOR_SCENE(){
-		Application.LoadLevel ("Tile Editor Menu");
+		SceneManager.LoadScene ("Tile Editor Menu");
 	}
 	public void Play_Pause_Function(){
 		if (play_pause_flag) {
@@ -48,6 +49,13 @@ public class AssemblyManager : MonoBehaviour {
 		} else {
 			play_pause_text.text = "pause";
 			play_pause_flag = true;
+		}
+	}
+	public void Discrete_Counts_Function(){
+		if (discrete_counts_flag) {
+			discrete_counts_flag = false;
+		} else {
+			discrete_counts_flag = true;
 		}
 	}
 
@@ -110,83 +118,89 @@ public class AssemblyManager : MonoBehaviour {
 
 		for (int j = 0; j < setManager.CubeSet.Count; j++) {
 			tmpCube = setManager.CubeSet [j];
-			if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
-				string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
-				if (tmpCube.Front.label == front_glue) {
-					for (int i = 0; i < setManager.Glues.Count; i++) {
-						if (setManager.Glues [i].label == front_glue) {
-							sumGlueStrength += setManager.Glues [i].strength;
+			if (tmpCube.Count != 0) {
+				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
+					string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
+					if (tmpCube.Front.label == front_glue) {
+						for (int i = 0; i < setManager.Glues.Count; i++) {
+							if (setManager.Glues [i].label == front_glue) {
+								sumGlueStrength += setManager.Glues [i].strength;
+							}
 						}
 					}
 				}
-			}
-			if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
-				string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
-				if (tmpCube.Back.label == back_glue) {
-					for (int i = 0; i < setManager.Glues.Count; i++) {
-						if (setManager.Glues [i].label == back_glue) {
-							sumGlueStrength += setManager.Glues [i].strength;
+				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
+					string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
+					if (tmpCube.Back.label == back_glue) {
+						for (int i = 0; i < setManager.Glues.Count; i++) {
+							if (setManager.Glues [i].label == back_glue) {
+								sumGlueStrength += setManager.Glues [i].strength;
+							}
 						}
 					}
 				}
-			}
-			if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z ))) {
-				string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
-				if (tmpCube.Right.label == right_glue) {
-					for (int i = 0; i < setManager.Glues.Count; i++) {
-						if (setManager.Glues [i].label == right_glue) {
-							sumGlueStrength += setManager.Glues [i].strength;
+				if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z))) {
+					string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
+					if (tmpCube.Right.label == right_glue) {
+						for (int i = 0; i < setManager.Glues.Count; i++) {
+							if (setManager.Glues [i].label == right_glue) {
+								sumGlueStrength += setManager.Glues [i].strength;
+							}
 						}
 					}
 				}
-			}
-			if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
-				string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
-				if (tmpCube.Left.label == left_glue) {
-					for (int i = 0; i < setManager.Glues.Count; i++) {
-						if (setManager.Glues [i].label == left_glue) {
-							sumGlueStrength += setManager.Glues [i].strength;
+				if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
+					string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
+					if (tmpCube.Left.label == left_glue) {
+						for (int i = 0; i < setManager.Glues.Count; i++) {
+							if (setManager.Glues [i].label == left_glue) {
+								sumGlueStrength += setManager.Glues [i].strength;
+							}
 						}
 					}
 				}
-			}
-			if (!isPositionEmpty (new Vector3 (pos.x, pos.y+1, pos.z ))) {
-				string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
-				if (tmpCube.Top.label == top_glue) {
-					for (int i = 0; i < setManager.Glues.Count; i++) {
-						if (setManager.Glues [i].label == top_glue) {
-							sumGlueStrength += setManager.Glues [i].strength;
+				if (!isPositionEmpty (new Vector3 (pos.x, pos.y + 1, pos.z))) {
+					string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
+					if (tmpCube.Top.label == top_glue) {
+						for (int i = 0; i < setManager.Glues.Count; i++) {
+							if (setManager.Glues [i].label == top_glue) {
+								sumGlueStrength += setManager.Glues [i].strength;
+							}
 						}
 					}
 				}
-			}
-			if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
-				string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
-				if (tmpCube.Bottom.label == bottom_glue) {
-					for (int i = 0; i < setManager.Glues.Count; i++) {
-						if (setManager.Glues [i].label == bottom_glue) {
-							sumGlueStrength += setManager.Glues [i].strength;
+				if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
+					string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
+					if (tmpCube.Bottom.label == bottom_glue) {
+						for (int i = 0; i < setManager.Glues.Count; i++) {
+							if (setManager.Glues [i].label == bottom_glue) {
+								sumGlueStrength += setManager.Glues [i].strength;
+							}
 						}
 					}
 				}
+				Debug.Log (tmpCube.name + "  " + sumGlueStrength);
+				if (sumGlueStrength >= 2)
+					break;
+				sumGlueStrength = 0;
 			}
-			Debug.Log (tmpCube.name +"  "+sumGlueStrength);
-			if (sumGlueStrength >= 2)
-				break;
-			sumGlueStrength = 0;
 		}
 
-		if (sumGlueStrength >= 2)
+		if (sumGlueStrength >= 2) {
+			//if (setManager.discreteCounts)
+			if (discrete_counts_flag && (tmpCube.Count > 0))
+				tmpCube.Count--;
 			return tmpCube;
-		else {
+		
+		}else {
 			//tmpCube.name = "NULL";
-			return new _Cube();
+			return new _Cube ();
 		}
 	}
 	public Vector3 nextPosition(){
 		int index = Random.Range(0,nextPositions.Count);
-		//Vector3 pos = nextPositions[index];
-		//nextPositions.RemoveAt (index);
+			//Vector3 pos = nextPositions[index];
+			//nextPositions.RemoveAt (index);
 		Vector3 pos = nextPositions[0];
 		nextPositions.RemoveAt (0);
 		return pos;

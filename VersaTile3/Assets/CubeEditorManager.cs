@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -203,7 +204,7 @@ public class CubeEditorManager : MonoBehaviour {
 		cSYSm.CubeSet.Clear ();
 		for (int i = 1; i < cSETm.CubeSet.Count; i++) {
 			_Glue g = new _Glue (cSETm.Glues [cSETm.CubeSet [i].Front].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [i].Front].strength.text));
-			cSYSm.CubeSet.Add(new _Cube(cSETm.CubeSet[i].name, cSETm.CubeSet[i].colour,
+			cSYSm.CubeSet.Add(new _Cube(cSETm.CubeSet[i].name, cSETm.CubeSet[i].colour, cSETm.CubeSet[i].Count,
 				new _Glue (cSETm.Glues [cSETm.CubeSet [i].Front].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [i].Front].strength.text)),
 				new _Glue (cSETm.Glues [cSETm.CubeSet [i].Back].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [i].Back].strength.text)),
 				new _Glue (cSETm.Glues [cSETm.CubeSet [i].Right].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [i].Right].strength.text)),
@@ -212,7 +213,7 @@ public class CubeEditorManager : MonoBehaviour {
 				new _Glue (cSETm.Glues [cSETm.CubeSet [i].Bottom].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [i].Bottom].strength.text))));
 		}
 
-		cSYSm.Seed = new _Cube(cSETm.CubeSet[0].name, cSETm.CubeSet[0].colour,
+		cSYSm.Seed = new _Cube(cSETm.CubeSet[0].name, cSETm.CubeSet[0].colour, cSETm.CubeSet[0].Count,
 			new _Glue (cSETm.Glues [cSETm.CubeSet [0].Front].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [0].Front].strength.text)),
 			new _Glue (cSETm.Glues [cSETm.CubeSet [0].Back].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [0].Back].strength.text)),
 			new _Glue (cSETm.Glues [cSETm.CubeSet [0].Right].label.text, int.Parse (cSETm.Glues [cSETm.CubeSet [0].Right].strength.text)),
@@ -244,7 +245,7 @@ public class CubeEditorManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ().CubeSet = slc.CubeSet;
 		GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ().Glues = slc.Glues;
 
-		Application.LoadLevel ("Tile Editor Menu");
+		SceneManager.LoadScene ("Tile Editor Menu");
 	}
 	public void refreshLoad_File_Names(){
 		foreach ( GameObject f in GameObject.FindGameObjectsWithTag("FileButton")){
