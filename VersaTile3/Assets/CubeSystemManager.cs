@@ -24,6 +24,7 @@ public class CubeSystemManager : MonoBehaviour {
 	public _Cube Seed;
 	public List<_Cube> CubeSet;
 	public List<_Glue> Glues;
+	public bool discrete_counts_flag;
 
 	// Use this for initialization
 	void Start () {

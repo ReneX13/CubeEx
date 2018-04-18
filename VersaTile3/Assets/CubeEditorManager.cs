@@ -196,6 +196,7 @@ public class CubeEditorManager : MonoBehaviour {
 	public void Load_To_CSM(){
 		CubeSystemManager cSYSm = GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ();
 		CubeSetManager cSETm = setmanger.GetComponent<CubeSetManager> ();
+		cSYSm.discrete_counts_flag = setmanger.discrete_counts.isOn;
 		cSYSm.Glues.Clear ();
 		for (int i = 0; i < cSETm.Glues.Count; i++) {
 			cSYSm.Glues.Add(new _Glue(cSETm.Glues[i].label.text, int.Parse(cSETm.Glues[i].strength.text)));

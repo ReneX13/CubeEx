@@ -11,6 +11,7 @@ public class CubeSetManager : MonoBehaviour {
 	public Cube Seed;
 	public List<Cube> CubeSet;
 	public List<Glue> Glues;
+	public Toggle discrete_counts;
 	// Use this for initialization
 	void Start () {
 	

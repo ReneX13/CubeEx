@@ -1,20 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AssemblyManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CubeEditorManager.cs">
     <Files>
       <File FileName="Assets\Controller.cs" Line="1" Column="1" />
-      <File FileName="Assets\CubeView.cs" Line="4" Column="1" />
-      <File FileName="Assets\AssemblyManager.cs" Line="191" Column="51" />
+      <File FileName="Assets\CubeView.cs" Line="1" Column="1" />
+      <File FileName="Assets\AssemblyManager.cs" Line="191" Column="36" />
+      <File FileName="Assets\CubeSystemManager.cs" Line="53" Column="3" />
       <File FileName="Assets\CamController.cs" Line="1" Column="1" />
-      <File FileName="Assets\CubeSystemManager.cs" Line="26" Column="27" />
       <File FileName="Assets\MainMenuManager.cs" Line="38" Column="25" />
-      <File FileName="Assets\CubeSetManager.cs" Line="79" Column="29" />
-      <File FileName="Assets\CubeEditorManager.cs" Line="47" Column="25" />
+      <File FileName="Assets\CubeSetManager.cs" Line="14" Column="32" />
+      <File FileName="Assets\CubeEditorManager.cs" Line="195" Column="1" />
       <File FileName="Assets\CheckGlueData.cs" Line="1" Column="1" />
       <File FileName="Assets\DetectMessage.cs" Line="1" Column="1" />
       <File FileName="Assets\CubeData.cs" Line="1" Column="1" />
       <File FileName="Assets\Menu Scripts\Cube_Menu_Script.cs" Line="60" Column="9" />
-      <File FileName="Assets\Cube_Button_Script.cs" Line="7" Column="19" />
+      <File FileName="Assets\Cube_Button_Script.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
