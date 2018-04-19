@@ -11,7 +11,7 @@ public class AssemblyManager : MonoBehaviour {
 
 	public Text play_pause_text;
 	public bool play_pause_flag = false;
-	public bool discrete_counts_flag = false;
+	//public bool discrete_counts_flag = false;
 	public CubeSystemManager setManager;
 	public GameObject CubePrefab;
 	public List<Vector3> nextPositions;
@@ -51,13 +51,13 @@ public class AssemblyManager : MonoBehaviour {
 			play_pause_flag = true;
 		}
 	}
-	public void Discrete_Counts_Function(){
+	/*public void Discrete_Counts_Function(){
 		if (discrete_counts_flag) {
 			discrete_counts_flag = false;
 		} else {
 			discrete_counts_flag = true;
 		}
-	}
+	}*/
 
 //*****************************************************
 //Debugging Functions
@@ -188,7 +188,7 @@ public class AssemblyManager : MonoBehaviour {
 
 		if (sumGlueStrength >= 2) {
 			//if (setManager.discreteCounts)
-			if (discrete_counts_flag && (tmpCube.Count > 0))
+			if (setManager.discrete_counts_flag && (tmpCube.Count > 0))
 				tmpCube.Count--;
 			return tmpCube;
 		
