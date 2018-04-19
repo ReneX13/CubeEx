@@ -11,7 +11,6 @@ public class AssemblyManager : MonoBehaviour {
 
 	public Text play_pause_text;
 	public bool play_pause_flag = false;
-	//public bool discrete_counts_flag = false;
 	public CubeSystemManager setManager;
 	public GameObject CubePrefab;
 	public List<Vector3> nextPositions;
@@ -51,13 +50,6 @@ public class AssemblyManager : MonoBehaviour {
 			play_pause_flag = true;
 		}
 	}
-	/*public void Discrete_Counts_Function(){
-		if (discrete_counts_flag) {
-			discrete_counts_flag = false;
-		} else {
-			discrete_counts_flag = true;
-		}
-	}*/
 
 //*****************************************************
 //Debugging Functions
@@ -118,7 +110,7 @@ public class AssemblyManager : MonoBehaviour {
 
 		for (int j = 0; j < setManager.CubeSet.Count; j++) {
 			tmpCube = setManager.CubeSet [j];
-			if (tmpCube.Count != 0) {
+			if (tmpCube.Count != 0 || !setManager.discrete_counts_flag) {
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
 					string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
 					if (tmpCube.Front.label == front_glue) {
@@ -180,14 +172,17 @@ public class AssemblyManager : MonoBehaviour {
 					}
 				}
 				Debug.Log (tmpCube.name + "  " + sumGlueStrength);
-				if (sumGlueStrength >= 2)
+				//if (sumGlueStrength >= 2)
+				if (sumGlueStrength >= setManager.temperature) {
+					Debug.Log ("Temperature: " + setManager.temperature);
 					break;
+				}
 				sumGlueStrength = 0;
 			}
 		}
 
-		if (sumGlueStrength >= 2) {
-			//if (setManager.discreteCounts)
+		//if (sumGlueStrength >= 2) {
+		if (sumGlueStrength >= setManager.temperature) {
 			if (setManager.discrete_counts_flag && (tmpCube.Count > 0))
 				tmpCube.Count--;
 			return tmpCube;

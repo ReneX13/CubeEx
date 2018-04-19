@@ -116,6 +116,8 @@ public class CubeEditorManager : MonoBehaviour {
 	public void Load_From_CSM(){
 		CubeSystemManager csm = GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ();
 		CubeSetManager cSETm = setmanger.GetComponent<CubeSetManager> ();
+		setmanger.discrete_counts.isOn = csm.discrete_counts_flag;
+		setmanger.temperature.text	= csm.temperature.ToString();
 		for (int i = 1; i < csm.Glues.Count; i++) {
 			GameObject tmp = (GameObject)Instantiate (Glue_Panel_Prefab);
 			tmp.GetComponent<GlueData> ().Cube_Menu_Panel = Cube_Menu_Panel;
@@ -144,6 +146,9 @@ public class CubeEditorManager : MonoBehaviour {
 		tmp1.GetComponent<Cube_Button_Script> ().cube = new Cube();
 		tmp1.GetComponent<Cube_Button_Script> ().cube.name = csm.Seed.name;
 		tmp1.GetComponent<Cube_Button_Script> ().cube.colour = csm.Seed.colour.getColor();
+		//New line
+		tmp1.GetComponent<Cube_Button_Script> ().cube.Count = csm.Seed.Count;
+		//Not sure
 		for (int j = 0; j < cSETm.Glues.Count; j++) {
 			if (csm.Seed.Front.label == cSETm.Glues [j].label.text)
 				tmp1.GetComponent<Cube_Button_Script> ().cube.Front = j;
@@ -171,6 +176,8 @@ public class CubeEditorManager : MonoBehaviour {
 			tmp.GetComponent<Cube_Button_Script> ().cube = new Cube();
 			tmp.GetComponent<Cube_Button_Script> ().cube.name = csm.CubeSet [i].name;
 			tmp.GetComponent<Cube_Button_Script> ().cube.colour = csm.CubeSet [i].colour.getColor();
+			//Added count update
+			tmp.GetComponent<Cube_Button_Script> ().cube.Count = csm.CubeSet [i].Count;
 			for (int j = 0; j < cSETm.Glues.Count; j++) {
 				if (csm.CubeSet [i].Front.label == cSETm.Glues [j].label.text)
 					tmp.GetComponent<Cube_Button_Script> ().cube.Front = j;
@@ -197,6 +204,7 @@ public class CubeEditorManager : MonoBehaviour {
 		CubeSystemManager cSYSm = GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ();
 		CubeSetManager cSETm = setmanger.GetComponent<CubeSetManager> ();
 		cSYSm.discrete_counts_flag = setmanger.discrete_counts.isOn;
+		cSYSm.temperature = int.Parse(setmanger.temperature.text);
 		cSYSm.Glues.Clear ();
 		for (int i = 0; i < cSETm.Glues.Count; i++) {
 			cSYSm.Glues.Add(new _Glue(cSETm.Glues[i].label.text, int.Parse(cSETm.Glues[i].strength.text)));

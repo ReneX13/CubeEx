@@ -59,5 +59,6 @@ C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Pro
 C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Project\CubeEx\VersaTile3\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Project\CubeEx\VersaTile3\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Project\CubeEx\VersaTile3\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
+C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Project\CubeEx\VersaTile3\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Project\CubeEx\VersaTile3\obj\Debug\Assembly-CSharp.dll
 C:\Users\ivan-\Documents\UTRGV\Semester_4\CSCI_6370_02-Molecular_Computation\Project\CubeEx\VersaTile3\obj\Debug\Assembly-CSharp.pdb

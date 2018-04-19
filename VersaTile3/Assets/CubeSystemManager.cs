@@ -25,6 +25,7 @@ public class CubeSystemManager : MonoBehaviour {
 	public List<_Cube> CubeSet;
 	public List<_Glue> Glues;
 	public bool discrete_counts_flag;
+	public int temperature = 2;
 
 	// Use this for initialization
 	void Start () {

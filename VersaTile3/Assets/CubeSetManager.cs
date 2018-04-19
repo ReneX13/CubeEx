@@ -12,9 +12,10 @@ public class CubeSetManager : MonoBehaviour {
 	public List<Cube> CubeSet;
 	public List<Glue> Glues;
 	public Toggle discrete_counts;
+	public InputField temperature;
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
@@ -22,6 +23,10 @@ public class CubeSetManager : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A)) {
 			DisplayGlues ();
 		}
+	}
+
+	private void SubmitName(string arg0){
+		Debug.Log (arg0);
 	}
 
 	void DisplayGlues(){
