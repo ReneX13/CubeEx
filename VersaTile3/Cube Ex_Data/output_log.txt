@@ -1,0 +1,48 @@
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1944 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.161 seconds
+Platform assembly: C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Managed\System.dll (this message is harmless)
+desktop: 1024x768 60Hz; virtual: 2464x1050 at -1024,-150
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+The referenced script on this Behaviour (Game Object 'Label') is missing!
+ 
+(Filename:  Line: 1655)
+
+The referenced script on this Behaviour (Game Object 'Label') is missing!
+ 
+(Filename:  Line: 1655)
+
+UnloadTime: 0.806741 ms
+Update!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+DirectoryNotFoundException: Directory 'C:\Users\Rene\Desktop\VersaTile3\Cube Ex_Data\Saved_Data' not found.
+  at System.IO.Directory.GetFileSystemEntries (System.String path, System.String searchPattern, FileAttributes mask, FileAttributes attrs) [0x00000] in <filename unknown>:0 
+  at System.IO.Directory.GetFiles (System.String path, System.String searchPattern) [0x00000] in <filename unknown>:0 
+  at System.IO.DirectoryInfo.GetFiles (System.String searchPattern) [0x00000] in <filename unknown>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo:GetFiles (string)
+  at CubeEditorManager.LoadFileNames () [0x00000] in <filename unknown>:0 
+  at Starter.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: c34 -> priority: 1 

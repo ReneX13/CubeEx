@@ -1,0 +1,7 @@
+Features to add:
+	-A list of flexible glues. We can either setup a second list of for flexible glues or some kind of table that maps glues with whatever other glues they can attach to and the strength.
+	-A counter for each cube to allow discrete counts.
+	-A percentage to each cube corresponding to its concentration. Make sure that the sum of all percentages always equals 100%.
+	-Buttons/Options to select the features that we want when assembling. Add a toggle to the features, example: turn off or on the concentrations(all cubes have the same concentration), turn off or on the discrete counts(unlimited amounts of each cube), ect.
+	-Make sure to give all the proper information to the Cube System Manager, which is the gameobject/script that communicates between the editor and assembling scene.
+	-Allow cubes in the cube set to be preassembled assemblies, like in versaTile.

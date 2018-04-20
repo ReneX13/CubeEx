@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs">
+    <Files>
+      <File FileName="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs" Line="239" Column="23" />
+      <File FileName="Assets\CubeSystemManager.cs" Line="113" Column="15" />
+      <File FileName="Assets\Prefabs\Prefab Scripts\GlueManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Prefabs\Prefab Scripts\CubeButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Set Editor Scripts\Managers\CubeSetManager.cs" Line="51" Column="2" />
+      <File FileName="Assets\Set Editor Scripts\CubeMenuScript.cs" Line="54" Column="94" />
+      <File FileName="Assets\Set Editor Scripts\FileNameButtonScript.cs" Line="28" Column="88" />
+      <File FileName="Assets\Starter.cs" Line="27" Column="1" />
+      <File FileName="Assets\Simulation Scripts\AssemblyManager.cs" Line="199" Column="21" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
