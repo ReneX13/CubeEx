@@ -8,25 +8,32 @@ Implements:
 - Flexible glues
 - Temperature
 - Multi-cube seed
-- Concentration
 
 ---
 ## Camera
 #### Assembly
-Keys:
+Keys for translation of camera:
 - W - Forward
-- A -
-- S -
-- D -
+- A - Left
+- S - Back
+- D - Right
+- Q - Up
+- E - Down
+
+Rotation of camera:
+- Mouse scroll - Rotation up/down
+- Left-click + movement - Rotation with position of seed as center of gravity
+- Arrow keys - Rotate the camera in the direction of the arrow key
+
+Enter single view:
 - Right-click - Select a cube for single view
-- Mouse scroll - Zoom in/out
 
 #### Single view
 Keys:
 - Left-click + movement - Rotate the cube
 - ESC - Return to assembly view
 - Z - Return cube and camera to original position
-- Mouse scroll - Zoom in/out
+- Mouse scroll - Rotation up/down
 
 #### Editor
 Keys:

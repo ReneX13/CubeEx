@@ -4,6 +4,7 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class AssemblyManager : MonoBehaviour {
 	//This counter is to keep the program from going into an infinite loop while testing it.
 	public int test_counter = 10;
@@ -39,7 +40,7 @@ public class AssemblyManager : MonoBehaviour {
 
 	}
 	public void EDITOR_SCENE(){
-		Application.LoadLevel ("Tile Editor Menu");
+		SceneManager.LoadScene ("Tile Editor Menu");
 	}
 	public void Play_Pause_Function(){
 		if (play_pause_flag) {

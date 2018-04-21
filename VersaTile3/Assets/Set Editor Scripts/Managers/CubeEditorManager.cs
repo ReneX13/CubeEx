@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 public class CubeEditorManager : MonoBehaviour {
 
 	public GameObject File_Menu_Panel;
@@ -104,7 +105,7 @@ public class CubeEditorManager : MonoBehaviour {
 	}
 	public void RUN_SCENE(){
 		transform.GetComponent<CubeEditorManager> ().LoadToCSM ();
-		Application.LoadLevel ("1");
+		SceneManager.LoadScene ("1");
 	}
 
 //***************************************************************************
@@ -310,7 +311,7 @@ public class CubeEditorManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ().CubeSet = slc.CubeSet;
 		GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ().Glues = slc.Glues;
 
-		Application.LoadLevel ("Tile Editor Menu");
+		SceneManager.LoadScene ("Tile Editor Menu");
 	}
 
 
