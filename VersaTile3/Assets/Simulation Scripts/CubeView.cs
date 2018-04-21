@@ -55,10 +55,11 @@ public class CubeView : MonoBehaviour {
 		tmpCube.name = "SelectedCube";
 		cubeToView.name = "CubeSeen";
 
-		foreach (GameObject a in allObjects) 
+		foreach (GameObject obj in allObjects) 
 		{
-			if((a.name.StartsWith("Cube Template")) || (a.name.StartsWith("Button_Panel")) && (a.layer == 0))
-				a.SetActive (false);
+			if((obj.name.StartsWith("Cube Template")) || (obj.name.StartsWith("Button_Panel")) 
+				|| (obj.name.StartsWith("Minimap")) && ((obj.layer == 0) || (obj.layer == 8)))
+				obj.SetActive (false);
 		}
 	}
 	
@@ -145,8 +146,8 @@ public class CubeView : MonoBehaviour {
 		//Close the scene
 		else if (Input.GetKey(KeyCode.Escape)) //Click ESC
 		{
-			foreach (GameObject a in allObjects) 
-				a.SetActive (true);
+			foreach (GameObject obj in allObjects) 
+				obj.SetActive (true);
 			Camera.main.cullingMask = 1 << 0;
 			Camera.main.transform.rotation = myCamRot1;
 			Camera.main.transform.position = myCamPos1;

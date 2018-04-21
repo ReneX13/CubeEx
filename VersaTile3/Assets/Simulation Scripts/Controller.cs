@@ -147,7 +147,7 @@ public class Controller : MonoBehaviour {
 		//Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, 5f, 120f);
 
 		//Select a cube for viewing
-		if (Input.GetMouseButtonDown(1)) //Click on cube
+		if (Input.GetMouseButtonDown(1)) //Right-click on cube
 		{
 			RaycastHit hit = new RaycastHit();
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

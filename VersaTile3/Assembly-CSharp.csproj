@@ -64,6 +64,7 @@
      <Compile Include="Assets\Simulation Scripts\CamController.cs" />
      <Compile Include="Assets\Simulation Scripts\Controller.cs" />
      <Compile Include="Assets\Simulation Scripts\CubeView.cs" />
+     <Compile Include="Assets\Simulation Scripts\MinimapController.cs" />
      <Compile Include="Assets\Starter.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/ivan-/Documents/UTRGV/Semester_4/CSCI_6370_02-Molecular_Computation/Project/NEW/CubeEx/VersaTile3/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
