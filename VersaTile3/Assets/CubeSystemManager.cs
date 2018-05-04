@@ -41,13 +41,18 @@ public class CubeSystemManager : MonoBehaviour {
 
 	void DisplayGlues(){
 		for (int i = 0; i < Glues.Count; i++) {
-			Debug.Log (Glues [i].label + Glues[i].strength);
+			Debug.Log ( Glues [i].label + Glues [i].label2 + Glues[i].strength);
 		}
 	}
 	public List<string> GetListOfLabels(){
 		List<string> labels = new List<string> ();
 		for (int i = 0; i < Glues.Count; i++) {
-			labels.Add(Glues [i].label);
+			if (!labels.Contains (Glues [i].label)) {
+				labels.Add (Glues [i].label);
+			}
+			if (!labels.Contains (Glues [i].label2)) {
+				labels.Add (Glues [i].label2);
+			}
 		}
 
 		return labels;
@@ -125,14 +130,17 @@ public class _Cube{
 [System.Serializable]
 public class _Glue{
 	public string label; 
+	public string label2;
 	public int strength;
 
 	public _Glue(){
 		label = "none";
+		label2 = "none";
 		strength = 0; 
 	}
-	public _Glue(string l, int s){
+	public _Glue(string l, string r, int s){
 		label = l;
+		label2 = r;
 		strength = s;
 	}
 }

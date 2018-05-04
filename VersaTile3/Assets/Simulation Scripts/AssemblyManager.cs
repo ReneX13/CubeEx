@@ -4,6 +4,7 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class AssemblyManager : MonoBehaviour {
 	//This counter is to keep the program from going into an infinite loop while testing it.
 	public int test_counter = 10;
@@ -39,7 +40,7 @@ public class AssemblyManager : MonoBehaviour {
 
 	}
 	public void EDITOR_SCENE(){
-		Application.LoadLevel ("Tile Editor Menu");
+		SceneManager.LoadScene ("Tile Editor Menu");
 	}
 	public void Play_Pause_Function(){
 		if (play_pause_flag) {
@@ -91,7 +92,7 @@ public class AssemblyManager : MonoBehaviour {
 	}
 
 	/*
-	 * Reuturns a the glue label of a specified face, "dir",  from the Cube in position "pos".
+	 * Returns a the glue label of a specified face, "dir",  from the Cube in position "pos".
 	 * Call this only if you have checked if a cube does exists at position "pos".
 	*/
 	public string checkGlues(Vector3 pos, string dir){
@@ -123,68 +124,136 @@ public class AssemblyManager : MonoBehaviour {
 		_Cube tmpCube = new _Cube ();
 		Collider[] hitColliders = Physics.OverlapSphere(pos, 0.1f);
 		int sumGlueStrength = 0;
+		Dictionary<string, int> availableGlues = populateGlueDict ();
 
 		for (int j = 0; j < setManager.CubeSet.Count; j++) {
 			tmpCube = setManager.CubeSet [j];
 			if (tmpCube.current_count != 0 || !setManager.discrete_counts_flag) {
+				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
+				//	string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
+				//	if (tmpCube.Front.label == front_glue) {
+				//		for (int i = 0; i < setManager.Glues.Count; i++) {
+				//			if (setManager.Glues [i].label == front_glue) {
+				//				sumGlueStrength += setManager.Glues [i].strength;
+				//			}
+				//		}
+				//	}
+				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
 					string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
-					if (tmpCube.Front.label == front_glue) {
-						for (int i = 0; i < setManager.Glues.Count; i++) {
-							if (setManager.Glues [i].label == front_glue) {
-								sumGlueStrength += setManager.Glues [i].strength;
-							}
-						}
+					string gluePair1 = tmpCube.Front.label + front_glue;
+					string gluePair2 = front_glue + tmpCube.Front.label;
+
+					if (availableGlues.ContainsKey (gluePair1)) {
+						Debug.Log (availableGlues [gluePair1]);
+						sumGlueStrength += availableGlues [gluePair1];
+					} else if (availableGlues.ContainsKey (gluePair2)) {
+						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
+				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
+				//	string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
+				//	if (tmpCube.Back.label == back_glue) {
+				//		for (int i = 0; i < setManager.Glues.Count; i++) {
+				//			if (setManager.Glues [i].label == back_glue) {
+				//				sumGlueStrength += setManager.Glues [i].strength;
+				//			}
+				//		}
+				//	}
+				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
 					string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
-					if (tmpCube.Back.label == back_glue) {
-						for (int i = 0; i < setManager.Glues.Count; i++) {
-							if (setManager.Glues [i].label == back_glue) {
-								sumGlueStrength += setManager.Glues [i].strength;
-							}
-						}
+					string gluePair1 = tmpCube.Front.label + back_glue;
+					string gluePair2 = back_glue + tmpCube.Front.label;
+					if (availableGlues.ContainsKey (gluePair1)) {
+						Debug.Log (availableGlues [gluePair1]);
+						sumGlueStrength += availableGlues [gluePair1];
+					} else if (availableGlues.ContainsKey (gluePair2)) {
+						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
+				//if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z))) {
+				//	string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
+				//	if (tmpCube.Right.label == right_glue) {
+				//		for (int i = 0; i < setManager.Glues.Count; i++) {
+				//			if (setManager.Glues [i].label == right_glue) {
+				//				sumGlueStrength += setManager.Glues [i].strength;
+				//			}
+				//		}
+				//	}
+				//}
 				if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z))) {
 					string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
-					if (tmpCube.Right.label == right_glue) {
-						for (int i = 0; i < setManager.Glues.Count; i++) {
-							if (setManager.Glues [i].label == right_glue) {
-								sumGlueStrength += setManager.Glues [i].strength;
-							}
-						}
+					string gluePair1 = tmpCube.Front.label + right_glue;
+					string gluePair2 = right_glue + tmpCube.Front.label;
+					if (availableGlues.ContainsKey (gluePair1)) {
+						Debug.Log (availableGlues [gluePair1]);
+						sumGlueStrength += availableGlues [gluePair1];
+					} else if (availableGlues.ContainsKey (gluePair2)) {
+						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
+				//if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
+				//	string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
+				//	if (tmpCube.Left.label == left_glue) {
+				//		for (int i = 0; i < setManager.Glues.Count; i++) {
+				//			if (setManager.Glues [i].label == left_glue) {
+				//				sumGlueStrength += setManager.Glues [i].strength;
+				//			}
+				//		}
+				//	}
+				//}
 				if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
 					string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
-					if (tmpCube.Left.label == left_glue) {
-						for (int i = 0; i < setManager.Glues.Count; i++) {
-							if (setManager.Glues [i].label == left_glue) {
-								sumGlueStrength += setManager.Glues [i].strength;
-							}
-						}
+					string gluePair1 = tmpCube.Front.label + left_glue;
+					string gluePair2 = left_glue + tmpCube.Front.label;
+					if (availableGlues.ContainsKey (gluePair1)) {
+						Debug.Log (availableGlues [gluePair1]);
+						sumGlueStrength += availableGlues [gluePair1];
+					} else if (availableGlues.ContainsKey (gluePair2)) {
+						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
+				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y + 1, pos.z))) {
+				//	string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
+				//	if (tmpCube.Top.label == top_glue) {
+				//		for (int i = 0; i < setManager.Glues.Count; i++) {
+				//			if (setManager.Glues [i].label == top_glue) {
+				//				sumGlueStrength += setManager.Glues [i].strength;
+				//			}
+				//		}
+				//	}
+				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y + 1, pos.z))) {
 					string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
-					if (tmpCube.Top.label == top_glue) {
-						for (int i = 0; i < setManager.Glues.Count; i++) {
-							if (setManager.Glues [i].label == top_glue) {
-								sumGlueStrength += setManager.Glues [i].strength;
-							}
-						}
+					string gluePair1 = tmpCube.Front.label + top_glue;
+					string gluePair2 = top_glue + tmpCube.Front.label;
+					if (availableGlues.ContainsKey (gluePair1)) {
+						Debug.Log (availableGlues [gluePair1]);
+						sumGlueStrength += availableGlues [gluePair1];
+					} else if (availableGlues.ContainsKey (gluePair2)) {
+						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
+				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
+				//	string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
+				//	if (tmpCube.Bottom.label == bottom_glue) {
+				//		for (int i = 0; i < setManager.Glues.Count; i++) {
+				//			if (setManager.Glues [i].label == bottom_glue) {
+				//				sumGlueStrength += setManager.Glues [i].strength;
+				//			}
+				//		}
+				//	}
+				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
 					string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
-					if (tmpCube.Bottom.label == bottom_glue) {
-						for (int i = 0; i < setManager.Glues.Count; i++) {
-							if (setManager.Glues [i].label == bottom_glue) {
-								sumGlueStrength += setManager.Glues [i].strength;
-							}
-						}
+					string gluePair1 = tmpCube.Front.label + bottom_glue;
+					string gluePair2 = bottom_glue + tmpCube.Front.label;
+					if (availableGlues.ContainsKey (gluePair1)) {
+						Debug.Log (availableGlues [gluePair1]);
+						sumGlueStrength += availableGlues [gluePair1];
+					} else if (availableGlues.ContainsKey (gluePair2)) {
+						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
 				Debug.Log (tmpCube.name + "  " + sumGlueStrength);
@@ -200,7 +269,7 @@ public class AssemblyManager : MonoBehaviour {
 			return tmpCube;
 		}
 		else {
-				//tmpCube.name = "NULL";
+			//tmpCube.name = "NULL";
 			return new _Cube ();
 		}
 		
@@ -215,6 +284,18 @@ public class AssemblyManager : MonoBehaviour {
 		Vector3 pos = nextPositions[0];
 		nextPositions.RemoveAt (0);
 		return pos;
+	}
+
+	public Dictionary<string, int> populateGlueDict(){
+		Dictionary<string, int> GlueDict = new Dictionary<string, int> ();
+
+		for (int i = 0; i < setManager.Glues.Count; i++) {
+			string gluePair = setManager.Glues [i].label + setManager.Glues [i].label2;
+			int strenght = setManager.Glues [i].strength;
+			GlueDict.Add (gluePair, strenght);
+		}
+
+		return GlueDict;
 	}
 
 	/*Attempt to attach a Cube at this position of the Assembly.
