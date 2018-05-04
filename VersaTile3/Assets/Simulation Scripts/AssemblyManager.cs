@@ -125,23 +125,14 @@ public class AssemblyManager : MonoBehaviour {
 		Collider[] hitColliders = Physics.OverlapSphere(pos, 0.1f);
 		int sumGlueStrength = 0;
 		Dictionary<string, int> availableGlues = populateGlueDict ();
-
+		//These if statements check if the face of the current cube + an available face in the assembly matches one of the keys in the glue Dictionary
+		// if the pair exists then add the strenght value to the sumGlueStrength
 		for (int j = 0; j < setManager.CubeSet.Count; j++) {
 			tmpCube = setManager.CubeSet [j];
 			if (tmpCube.current_count != 0 || !setManager.discrete_counts_flag) {
-				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
-				//	string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
-				//	if (tmpCube.Front.label == front_glue) {
-				//		for (int i = 0; i < setManager.Glues.Count; i++) {
-				//			if (setManager.Glues [i].label == front_glue) {
-				//				sumGlueStrength += setManager.Glues [i].strength;
-				//			}
-				//		}
-				//	}
-				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z - 1))) {
 					string front_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z - 1), "Front");
-					string gluePair1 = tmpCube.Front.label + front_glue;
+					string gluePair1 = tmpCube.Front.label + ',' + front_glue;
 					string gluePair2 = front_glue + tmpCube.Front.label;
 
 					if (availableGlues.ContainsKey (gluePair1)) {
@@ -152,19 +143,9 @@ public class AssemblyManager : MonoBehaviour {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
-				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
-				//	string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
-				//	if (tmpCube.Back.label == back_glue) {
-				//		for (int i = 0; i < setManager.Glues.Count; i++) {
-				//			if (setManager.Glues [i].label == back_glue) {
-				//				sumGlueStrength += setManager.Glues [i].strength;
-				//			}
-				//		}
-				//	}
-				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
 					string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
-					string gluePair1 = tmpCube.Back.label + back_glue;
+					string gluePair1 = tmpCube.Back.label + ',' + back_glue;
 					string gluePair2 = back_glue + tmpCube.Back.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
@@ -174,19 +155,9 @@ public class AssemblyManager : MonoBehaviour {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
-				//if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z))) {
-				//	string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
-				//	if (tmpCube.Right.label == right_glue) {
-				//		for (int i = 0; i < setManager.Glues.Count; i++) {
-				//			if (setManager.Glues [i].label == right_glue) {
-				//				sumGlueStrength += setManager.Glues [i].strength;
-				//			}
-				//		}
-				//	}
-				//}
 				if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z))) {
 					string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
-					string gluePair1 = tmpCube.Right.label + right_glue;
+					string gluePair1 = tmpCube.Right.label + ',' + right_glue;
 					string gluePair2 = right_glue + tmpCube.Right.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
@@ -196,19 +167,9 @@ public class AssemblyManager : MonoBehaviour {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
-				//if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
-				//	string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
-				//	if (tmpCube.Left.label == left_glue) {
-				//		for (int i = 0; i < setManager.Glues.Count; i++) {
-				//			if (setManager.Glues [i].label == left_glue) {
-				//				sumGlueStrength += setManager.Glues [i].strength;
-				//			}
-				//		}
-				//	}
-				//}
 				if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
 					string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
-					string gluePair1 = tmpCube.Left.label + left_glue;
+					string gluePair1 = tmpCube.Left.label + ',' + left_glue;
 					string gluePair2 = left_glue + tmpCube.Left.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
@@ -218,19 +179,9 @@ public class AssemblyManager : MonoBehaviour {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
-				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y + 1, pos.z))) {
-				//	string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
-				//	if (tmpCube.Top.label == top_glue) {
-				//		for (int i = 0; i < setManager.Glues.Count; i++) {
-				//			if (setManager.Glues [i].label == top_glue) {
-				//				sumGlueStrength += setManager.Glues [i].strength;
-				//			}
-				//		}
-				//	}
-				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y + 1, pos.z))) {
 					string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
-					string gluePair1 = tmpCube.Top.label + top_glue;
+					string gluePair1 = tmpCube.Top.label + ',' + top_glue;
 					string gluePair2 = top_glue + tmpCube.Top.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
@@ -240,19 +191,9 @@ public class AssemblyManager : MonoBehaviour {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
-				//if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
-				//	string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
-				//	if (tmpCube.Bottom.label == bottom_glue) {
-				//		for (int i = 0; i < setManager.Glues.Count; i++) {
-				//			if (setManager.Glues [i].label == bottom_glue) {
-				//				sumGlueStrength += setManager.Glues [i].strength;
-				//			}
-				//		}
-				//	}
-				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
 					string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
-					string gluePair1 = tmpCube.Bottom.label + bottom_glue;
+					string gluePair1 = tmpCube.Bottom.label + ',' + bottom_glue;
 					string gluePair2 = bottom_glue + tmpCube.Bottom.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
@@ -292,13 +233,15 @@ public class AssemblyManager : MonoBehaviour {
 		return pos;
 	}
 
+	/*This function will create a dictionary of glues where label1+label2 are the key and the strength is the value
+	 */
 	public Dictionary<string, int> populateGlueDict(){
 		Dictionary<string, int> GlueDict = new Dictionary<string, int> ();
 
 		for (int i = 0; i < setManager.Glues.Count; i++) {
-			string gluePair = setManager.Glues [i].label + setManager.Glues [i].label2;
-			int strenght = setManager.Glues [i].strength;
-			GlueDict.Add (gluePair, strenght);
+			string gluePair = setManager.Glues [i].label+',' + setManager.Glues [i].label2;
+			int strength = setManager.Glues [i].strength;
+			GlueDict.Add (gluePair, strength);
 		}
 
 		return GlueDict;
