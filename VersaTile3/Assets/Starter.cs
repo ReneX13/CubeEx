@@ -10,7 +10,7 @@ public class Starter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Destroy (this);
 		Debug.Log ("Update!");
 		cem.File_Menu_Panel.SetActive (true);
 		cem.Cube_Menu_Panel.SetActive (false);
@@ -21,6 +21,5 @@ public class Starter : MonoBehaviour {
 
 		cem.LoadFromCSM ();
 		cem.LoadFileNames ();
-		Destroy (this);
 	}
 }

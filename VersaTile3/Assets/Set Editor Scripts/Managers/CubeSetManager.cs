@@ -20,9 +20,13 @@ public class CubeSetManager : MonoBehaviour {
 	public List<string> GetListOfLabels(){
 		List<string> labels = new List<string> ();
 		for (int i = 0; i < Glues.Count; i++) {
-			labels.Add(Glues [i].label.text);
+			if (!labels.Contains (Glues [i].label.text)) {
+				labels.Add (Glues [i].label.text);
+			} 
+			if (!labels.Contains (Glues [i].label2.text)) {
+				labels.Add (Glues [i].label2.text);
+			} 
 		}
-
 		return labels;
 	}
 }
@@ -84,7 +88,8 @@ public class Cube{
 [System.Serializable]
 public class Glue{
 	public CubeEditorManager cem;
-	public InputField label; 
+	public InputField label;  
+	public InputField label2; 
 	public InputField strength;
 
 	public Glue(){
@@ -94,6 +99,9 @@ public class Glue{
 	//setup the on change listner for the "label" input field
 	public void setup(){
 		label.GetComponent<InputField> ().onValueChanged.AddListener (delegate {
+			ValueChangeCheck_LABEL ();
+		});
+		label2.GetComponent<InputField> ().onValueChanged.AddListener (delegate {
 			ValueChangeCheck_LABEL ();
 		});
 	}
@@ -117,4 +125,5 @@ public class Glue{
 		cem.dropdownBottom.ClearOptions();
 		cem.dropdownBottom.AddOptions(cem.setManager.GetListOfLabels());
 	}
+
 }

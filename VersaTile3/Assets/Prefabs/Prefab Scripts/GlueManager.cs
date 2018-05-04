@@ -11,9 +11,16 @@ public class GlueManager: MonoBehaviour {
 		glue.cem = cem;
 	}
 
-	/*This function called when loading back fromt he CubeSystemManager*/
-	public void setGlue(string l, int s){
+	/*This function called when loading back from the CubeSystemManager*/
+	/*public void setGlue(string l, int s){
 		glue.label.text = l;
+		glue.strength.text = s.ToString ();
+	}*/
+
+	//new setGlue
+	public void setGlue(string l, string r, int s){
+		glue.label.text = l;
+		glue.label2.text = r;
 		glue.strength.text = s.ToString ();
 	}
 

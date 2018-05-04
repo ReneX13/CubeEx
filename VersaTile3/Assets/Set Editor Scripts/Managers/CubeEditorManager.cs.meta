@@ -3,8 +3,30 @@ guid: 5dfaf4838c3127345a60f0804dc7e282
 timeCreated: 1523055324
 licenseType: Free
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - File_Menu_Panel: {instanceID: 0}
+  - Cube_Menu_Panel: {instanceID: 0}
+  - Glues_Menu_Panel: {instanceID: 0}
+  - Save_AND_Load_BlackScreen_Panel: {instanceID: 0}
+  - Save_Menu_Panel: {instanceID: 0}
+  - Load_Menu_Panel: {instanceID: 0}
+  - Load_File_Panel: {instanceID: 0}
+  - Save_InputField: {instanceID: 0}
+  - GlueListPanel: {instanceID: 0}
+  - CubeSetPanel: {instanceID: 0}
+  - setManager: {instanceID: 0}
+  - cubeMenuScript: {instanceID: 0}
+  - GluePrefab: {fileID: 135744, guid: 2bf3874821000b046aa8f08570634f9e, type: 2}
+  - CubeButtonPrefab: {instanceID: 0}
+  - FileNamePrefab: {instanceID: 0}
+  - dropdownFront: {instanceID: 0}
+  - dropdownBack: {instanceID: 0}
+  - dropdownRight: {instanceID: 0}
+  - dropdownLeft: {instanceID: 0}
+  - dropdownTop: {instanceID: 0}
+  - dropdownBottom: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
