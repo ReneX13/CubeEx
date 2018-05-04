@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 public class CubeEditorManager : MonoBehaviour {
 
 	public GameObject File_Menu_Panel;
@@ -179,7 +180,8 @@ public class CubeEditorManager : MonoBehaviour {
 			setManager.Glues.Add (tmp.GetComponent<GlueManager> ().glue);
 		}
 		updateDropdowns();
-
+		List<string> GlueList = new List<string> ();
+		GlueList = setManager.GetListOfLabels ();
 		/*Extract the seed from the "CubeSystemManager"
 		 * and add it to the ""CubeSet" from the "CubeSetManager".
 		 */
@@ -190,7 +192,7 @@ public class CubeEditorManager : MonoBehaviour {
 		tmpSeed.GetComponent<CubeButtonScript> ().CubeName.text = csm.Seed.name;
 		tmpSeed.GetComponent<CubeButtonScript> ().cube.colour = csm.Seed.colour.getColor();
 		tmpSeed.GetComponent<CubeButtonScript> ().cube.count = csm.Seed.count;
-		for (int j = 0; j < setManager.Glues.Count; j++) {
+		for (int j = 0; j < GlueList.Count; j++) {
 			//if (csm.Seed.Front.label == setManager.Glues [j].label.text)
 			//	tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
 			//if (csm.Seed.Back.label == setManager.Glues [j].label.text)
@@ -203,30 +205,24 @@ public class CubeEditorManager : MonoBehaviour {
 			//	tmpSeed.GetComponent<CubeButtonScript> ().cube.Top = j;
 			//if (csm.Seed.Bottom.label == setManager.Glues [j].label.text)
 			//	tmpSeed.GetComponent<CubeButtonScript> ().cube.Bottom = j;
-			if (csm.Seed.Front.label == setManager.Glues [j].label.text)
+			if (csm.Seed.Front.label == GlueList [j])
 				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
-			else if (csm.Seed.Front.label == setManager.Glues [j].label2.text)
-				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
-			if (csm.Seed.Back.label == setManager.Glues [j].label.text)
+
+			if (csm.Seed.Back.label ==  GlueList [j])
 				tmpSeed.GetComponent<CubeButtonScript> ().cube.Back = j;
-			else if (csm.Seed.Back.label == setManager.Glues [j].label2.text)
-				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
-			if (csm.Seed.Right.label == setManager.Glues [j].label.text)
+		
+			if (csm.Seed.Right.label ==  GlueList [j])
 				tmpSeed.GetComponent<CubeButtonScript> ().cube.Right = j;
-			else if (csm.Seed.Right.label == setManager.Glues [j].label2.text)
-				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
-			if (csm.Seed.Left.label == setManager.Glues [j].label.text)
+
+			if (csm.Seed.Left.label ==  GlueList [j])
 				tmpSeed.GetComponent<CubeButtonScript> ().cube.Left = j;
-			else if (csm.Seed.Left.label == setManager.Glues [j].label2.text)
-				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
-			if (csm.Seed.Top.label == setManager.Glues [j].label.text)
+		
+			if (csm.Seed.Top.label ==  GlueList [j])
 				tmpSeed.GetComponent<CubeButtonScript> ().cube.Top = j;
-			else if (csm.Seed.Top.label == setManager.Glues [j].label2.text)
-				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
-			if (csm.Seed.Bottom.label == setManager.Glues [j].label.text)
+			
+			if (csm.Seed.Bottom.label ==  GlueList [j])
 				tmpSeed.GetComponent<CubeButtonScript> ().cube.Bottom = j;
-			else if (csm.Seed.Bottom.label == setManager.Glues [j].label2.text)
-				tmpSeed.GetComponent<CubeButtonScript> ().cube.Front = j;
+			
 		}
 		tmpSeed.transform.SetParent (CubeSetPanel.transform);
 		setManager.CubeSet.Add (tmpSeed.GetComponent<CubeButtonScript> ().cube);
@@ -244,37 +240,32 @@ public class CubeEditorManager : MonoBehaviour {
 			tmpCube.GetComponent<CubeButtonScript> ().CubeName.text = csm.CubeSet [i].name;
 			tmpCube.GetComponent<CubeButtonScript> ().cube.colour = csm.CubeSet [i].colour.getColor();
 			tmpCube.GetComponent<CubeButtonScript> ().cube.count = csm.CubeSet [i].count;
-			for (int j = 0; j < setManager.Glues.Count; j++) {
-				if (csm.CubeSet [i].Front.label == setManager.Glues [j].label.text)
+			for (int j = 0; j < GlueList.Count; j++) {
+				if (csm.CubeSet[i].Front.label == GlueList [j])
 					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
-				else if (csm.CubeSet [i].Front.label == setManager.Glues [j].label2.text)
-					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
-				if (csm.CubeSet [i].Back.label == setManager.Glues [j].label.text)
+
+				if (csm.CubeSet[i].Back.label ==  GlueList [j])
 					tmpCube.GetComponent<CubeButtonScript> ().cube.Back = j;
-				else if (csm.CubeSet [i].Back.label == setManager.Glues [j].label2.text)
-					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
-				if (csm.CubeSet [i].Right.label == setManager.Glues [j].label.text)
+
+				if (csm.CubeSet[i].Right.label ==  GlueList [j])
 					tmpCube.GetComponent<CubeButtonScript> ().cube.Right = j;
-				else if (csm.CubeSet [i].Right.label == setManager.Glues [j].label2.text)
-					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
-				if (csm.CubeSet [i].Left.label == setManager.Glues [j].label.text)
+
+				if (csm.CubeSet[i].Left.label ==  GlueList [j])
 					tmpCube.GetComponent<CubeButtonScript> ().cube.Left = j;
-				else if (csm.CubeSet [i].Left.label == setManager.Glues [j].label2.text)
-					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
-				if (csm.CubeSet [i].Top.label == setManager.Glues [j].label.text)
+
+				if (csm.CubeSet[i].Top.label ==  GlueList [j])
 					tmpCube.GetComponent<CubeButtonScript> ().cube.Top = j;
-				else if (csm.CubeSet [i].Top.label == setManager.Glues [j].label2.text)
-					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
-				if (csm.CubeSet [i].Bottom.label == setManager.Glues [j].label.text)
+
+				if (csm.CubeSet[i].Bottom.label ==  GlueList [j])
 					tmpCube.GetComponent<CubeButtonScript> ().cube.Bottom = j;
-				else if (csm.CubeSet [i].Bottom.label == setManager.Glues [j].label2.text)
-					tmpCube.GetComponent<CubeButtonScript> ().cube.Front = j;
 			}
 			tmpCube.transform.SetParent (CubeSetPanel.transform);
 			setManager.CubeSet.Add (tmpCube.GetComponent<CubeButtonScript> ().cube);
 		}
 	}
 	public void LoadToCSM(){
+		List<string> GlueList = new List<string> ();
+		GlueList = setManager.GetListOfLabels ();
 		CubeSystemManager cSYSm = GameObject.FindGameObjectWithTag ("CSM").GetComponent<CubeSystemManager> ();
 		//CubeSetManager setManager = setManager.GetComponent<CubeSetManager> ();
 		cSYSm.discrete_counts_flag = setManager.discrete_counts.isOn;
@@ -297,13 +288,19 @@ public class CubeEditorManager : MonoBehaviour {
 				//new _Glue (setManager.Glues [setManager.CubeSet [i].Left].label.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Left].strength.text)),
 				//new _Glue (setManager.Glues [setManager.CubeSet [i].Top].label.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Top].strength.text)),
 				//new _Glue (setManager.Glues [setManager.CubeSet [i].Bottom].label.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Bottom].strength.text))));
-				new _Glue (setManager.Glues [setManager.CubeSet [i].Front].label.text, setManager.Glues [setManager.CubeSet [i].Front].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Front].strength.text)),
-				new _Glue (setManager.Glues [setManager.CubeSet [i].Back].label.text, setManager.Glues [setManager.CubeSet [i].Back].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Back].strength.text)),
-				new _Glue (setManager.Glues [setManager.CubeSet [i].Right].label.text, setManager.Glues [setManager.CubeSet [i].Right].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Right].strength.text)),
-				new _Glue (setManager.Glues [setManager.CubeSet [i].Left].label.text, setManager.Glues [setManager.CubeSet [i].Left].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Left].strength.text)),
-				new _Glue (setManager.Glues [setManager.CubeSet [i].Top].label.text, setManager.Glues [setManager.CubeSet [i].Top].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Top].strength.text)),
-				new _Glue (setManager.Glues [setManager.CubeSet [i].Bottom].label.text, setManager.Glues [setManager.CubeSet [i].Bottom].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Bottom].strength.text))));
-			
+				//new _Glue (GlueList[setManager.CubeSet [i].Front], setManager.Glues [setManager.CubeSet [i].Front].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Front].strength.text)),
+				//new _Glue (setManager.Glues [setManager.CubeSet [i].Back].label.text, setManager.Glues [setManager.CubeSet [i].Back].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Back].strength.text)),
+				//new _Glue (setManager.Glues [setManager.CubeSet [i].Right].label.text, setManager.Glues [setManager.CubeSet [i].Right].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Right].strength.text)),
+				//new _Glue (setManager.Glues [setManager.CubeSet [i].Left].label.text, setManager.Glues [setManager.CubeSet [i].Left].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Left].strength.text)),
+				//new _Glue (setManager.Glues [setManager.CubeSet [i].Top].label.text, setManager.Glues [setManager.CubeSet [i].Top].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Top].strength.text)),
+				//new _Glue (setManager.Glues [setManager.CubeSet [i].Bottom].label.text, setManager.Glues [setManager.CubeSet [i].Bottom].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [i].Bottom].strength.text))));
+				new _Glue (GlueList[setManager.CubeSet [i].Front], GlueList[setManager.CubeSet [i].Front], 0),
+				new _Glue (GlueList[setManager.CubeSet [i].Back], GlueList[setManager.CubeSet [i].Back], 0),
+				new _Glue (GlueList[setManager.CubeSet [i].Right], GlueList[setManager.CubeSet [i].Right], 0),
+				new _Glue (GlueList[setManager.CubeSet [i].Left], GlueList[setManager.CubeSet [i].Left], 0),
+				new _Glue (GlueList[setManager.CubeSet [i].Top], GlueList[setManager.CubeSet [i].Top],0),
+				new _Glue (GlueList[setManager.CubeSet [i].Bottom], GlueList[setManager.CubeSet [i].Bottom], 0)));
+
 		}
 
 		cSYSm.Seed = new _Cube(setManager.CubeSet[0].name, setManager.CubeSet[0].colour, setManager.CubeSet[0].count,
@@ -313,13 +310,18 @@ public class CubeEditorManager : MonoBehaviour {
 			//new _Glue (setManager.Glues [setManager.CubeSet [0].Left].label.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Left].strength.text)),
 			//new _Glue (setManager.Glues [setManager.CubeSet [0].Top].label.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Top].strength.text)),
 			//new _Glue (setManager.Glues [setManager.CubeSet [0].Bottom].label.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Bottom].strength.text)));
-			new _Glue (setManager.Glues [setManager.CubeSet [0].Front].label.text, setManager.Glues [setManager.CubeSet [0].Front].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Front].strength.text)),
-			new _Glue (setManager.Glues [setManager.CubeSet [0].Back].label.text, setManager.Glues [setManager.CubeSet [0].Back].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Back].strength.text)),
-			new _Glue (setManager.Glues [setManager.CubeSet [0].Right].label.text, setManager.Glues [setManager.CubeSet [0].Right].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Right].strength.text)),
-			new _Glue (setManager.Glues [setManager.CubeSet [0].Left].label.text, setManager.Glues [setManager.CubeSet [0].Left].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Left].strength.text)),
-			new _Glue (setManager.Glues [setManager.CubeSet [0].Top].label.text, setManager.Glues [setManager.CubeSet [0].Top].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Top].strength.text)),
-			new _Glue (setManager.Glues [setManager.CubeSet [0].Bottom].label.text, setManager.Glues [setManager.CubeSet [0].Bottom].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Bottom].strength.text)));
-		
+			//new _Glue (setManager.Glues [setManager.CubeSet [0].Front].label.text, setManager.Glues [setManager.CubeSet [0].Front].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Front].strength.text)),
+			//new _Glue (setManager.Glues [setManager.CubeSet [0].Back].label.text, setManager.Glues [setManager.CubeSet [0].Back].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Back].strength.text)),
+			//new _Glue (setManager.Glues [setManager.CubeSet [0].Right].label.text, setManager.Glues [setManager.CubeSet [0].Right].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Right].strength.text)),
+			//new _Glue (setManager.Glues [setManager.CubeSet [0].Left].label.text, setManager.Glues [setManager.CubeSet [0].Left].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Left].strength.text)),
+			//new _Glue (setManager.Glues [setManager.CubeSet [0].Top].label.text, setManager.Glues [setManager.CubeSet [0].Top].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Top].strength.text)),
+			//new _Glue (setManager.Glues [setManager.CubeSet [0].Bottom].label.text, setManager.Glues [setManager.CubeSet [0].Bottom].label2.text, int.Parse (setManager.Glues [setManager.CubeSet [0].Bottom].strength.text)));
+			new _Glue (GlueList[setManager.CubeSet [0].Front], GlueList[setManager.CubeSet [0].Front], 0),
+			new _Glue (GlueList[setManager.CubeSet [0].Back], GlueList[setManager.CubeSet [0].Back], 0),
+			new _Glue (GlueList[setManager.CubeSet [0].Right], GlueList[setManager.CubeSet [0].Right], 0),
+			new _Glue (GlueList[setManager.CubeSet [0].Left], GlueList[setManager.CubeSet [0].Left], 0),
+			new _Glue (GlueList[setManager.CubeSet [0].Top], GlueList[setManager.CubeSet [0].Top], 0),
+			new _Glue (GlueList[setManager.CubeSet [0].Bottom], GlueList[setManager.CubeSet [0].Bottom], 0));
 	}
 
 //***************************************************************************

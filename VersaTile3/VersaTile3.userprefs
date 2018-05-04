@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Set Editor Scripts\CubeMenuScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Simulation Scripts\AssemblyManager.cs">
     <Files>
-      <File FileName="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs" Line="161" Column="14" />
-      <File FileName="Assets\CubeSystemManager.cs" Line="141" Column="11" />
-      <File FileName="Assets\Prefabs\Prefab Scripts\GlueManager.cs" Line="10" Column="13" />
-      <File FileName="Assets\Set Editor Scripts\Managers\CubeSetManager.cs" Line="104" Column="22" />
-      <File FileName="Assets\Set Editor Scripts\CubeMenuScript.cs" Line="16" Column="3" />
-      <File FileName="Assets\Simulation Scripts\AssemblyManager.cs" Line="400" Column="3" />
+      <File FileName="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs" Line="243" Column="32" />
+      <File FileName="Assets\CubeSystemManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Prefabs\Prefab Scripts\GlueManager.cs" Line="4" Column="1" />
+      <File FileName="Assets\Set Editor Scripts\Managers\CubeSetManager.cs" Line="116" Column="7" />
+      <File FileName="Assets\Set Editor Scripts\CubeMenuScript.cs" Line="85" Column="24" />
+      <File FileName="Assets\Simulation Scripts\AssemblyManager.cs" Line="130" Column="4" />
+      <File FileName="..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" Line="983" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

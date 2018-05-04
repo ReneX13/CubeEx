@@ -147,7 +147,8 @@ public class AssemblyManager : MonoBehaviour {
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
 						sumGlueStrength += availableGlues [gluePair1];
-					} else if (availableGlues.ContainsKey (gluePair2)) {
+					} 
+					if (availableGlues.ContainsKey (gluePair2)) {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
@@ -163,12 +164,13 @@ public class AssemblyManager : MonoBehaviour {
 				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y, pos.z + 1))) {
 					string back_glue = checkGlues (new Vector3 (pos.x, pos.y, pos.z + 1), "Back");
-					string gluePair1 = tmpCube.Front.label + back_glue;
-					string gluePair2 = back_glue + tmpCube.Front.label;
+					string gluePair1 = tmpCube.Back.label + back_glue;
+					string gluePair2 = back_glue + tmpCube.Back.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
 						sumGlueStrength += availableGlues [gluePair1];
-					} else if (availableGlues.ContainsKey (gluePair2)) {
+					} 
+					if (availableGlues.ContainsKey (gluePair2)) {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
@@ -184,12 +186,13 @@ public class AssemblyManager : MonoBehaviour {
 				//}
 				if (!isPositionEmpty (new Vector3 (pos.x + 1, pos.y, pos.z))) {
 					string right_glue = checkGlues (new Vector3 (pos.x + 1, pos.y, pos.z), "Right");
-					string gluePair1 = tmpCube.Front.label + right_glue;
-					string gluePair2 = right_glue + tmpCube.Front.label;
+					string gluePair1 = tmpCube.Right.label + right_glue;
+					string gluePair2 = right_glue + tmpCube.Right.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
 						sumGlueStrength += availableGlues [gluePair1];
-					} else if (availableGlues.ContainsKey (gluePair2)) {
+					} 
+					if (availableGlues.ContainsKey (gluePair2)) {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
@@ -205,12 +208,13 @@ public class AssemblyManager : MonoBehaviour {
 				//}
 				if (!isPositionEmpty (new Vector3 (pos.x - 1, pos.y, pos.z))) {
 					string left_glue = checkGlues (new Vector3 (pos.x - 1, pos.y, pos.z), "Left");
-					string gluePair1 = tmpCube.Front.label + left_glue;
-					string gluePair2 = left_glue + tmpCube.Front.label;
+					string gluePair1 = tmpCube.Left.label + left_glue;
+					string gluePair2 = left_glue + tmpCube.Left.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
 						sumGlueStrength += availableGlues [gluePair1];
-					} else if (availableGlues.ContainsKey (gluePair2)) {
+					} 
+					if (availableGlues.ContainsKey (gluePair2)) {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
@@ -226,12 +230,13 @@ public class AssemblyManager : MonoBehaviour {
 				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y + 1, pos.z))) {
 					string top_glue = checkGlues (new Vector3 (pos.x, pos.y + 1, pos.z), "Top");
-					string gluePair1 = tmpCube.Front.label + top_glue;
-					string gluePair2 = top_glue + tmpCube.Front.label;
+					string gluePair1 = tmpCube.Top.label + top_glue;
+					string gluePair2 = top_glue + tmpCube.Top.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
 						sumGlueStrength += availableGlues [gluePair1];
-					} else if (availableGlues.ContainsKey (gluePair2)) {
+					} 
+					if (availableGlues.ContainsKey (gluePair2)) {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
@@ -247,12 +252,13 @@ public class AssemblyManager : MonoBehaviour {
 				//}
 				if (!isPositionEmpty (new Vector3 (pos.x, pos.y - 1, pos.z))) {
 					string bottom_glue = checkGlues (new Vector3 (pos.x, pos.y - 1, pos.z), "Bottom");
-					string gluePair1 = tmpCube.Front.label + bottom_glue;
-					string gluePair2 = bottom_glue + tmpCube.Front.label;
+					string gluePair1 = tmpCube.Bottom.label + bottom_glue;
+					string gluePair2 = bottom_glue + tmpCube.Bottom.label;
 					if (availableGlues.ContainsKey (gluePair1)) {
 						Debug.Log (availableGlues [gluePair1]);
 						sumGlueStrength += availableGlues [gluePair1];
-					} else if (availableGlues.ContainsKey (gluePair2)) {
+					} 
+					if (availableGlues.ContainsKey (gluePair2)) {
 						sumGlueStrength += availableGlues [gluePair2];
 					}
 				}
