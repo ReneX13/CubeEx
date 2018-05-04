@@ -7,8 +7,16 @@ Implements:
 - Discrete counts
 - Flexible glues
 - Temperature
-- Multi-cube seed
-- Concentration
+- Multi-cube seed (TODO)
+- Concentration (TODO)
+
+It has these User features:
+
+- 3D World Exploration
+- Minimap
+- Select single cube in assembly
+- Add/Delete cubes/glues
+- Save/Load cubeSet and glueSet to/from a file
 
 ---
 ## Camera
