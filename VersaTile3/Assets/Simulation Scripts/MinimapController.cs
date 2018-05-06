@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MinimapController : MonoBehaviour {
-	Camera minimapCamera;
+	public Camera minimapCamera;
 	Quaternion camRot;
 	Vector3 camPos;
+	public float speed = 3.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,11 +25,38 @@ public class MinimapController : MonoBehaviour {
 
 			if (Physics.Raycast(ray, out hit))
 			{  
+				//Coordinates for the cube you clicked
+				Vector3 local = hit.collider.gameObject.transform.position;
+
 				//Move main camera to position
-				Camera.main.transform.rotation = camRot;
-				Camera.main.transform.position = camPos;
+				Camera.main.transform.position = new Vector3 (local.x, local.y, local.z - 3);
+
+				//Rotation does not work due to the Update function of the Main Camera
+				//Camera.main.transform.Rotate(new Vector3(90,0,0));
 			}
 		}
+
+		//Control translation of camera
+		if (Input.GetKey (KeyCode.O)) {
+			minimapCamera.transform.Translate (Vector3.forward * speed * Time.deltaTime);
+		} else if (Input.GetKey (KeyCode.U)) {
+			minimapCamera.transform.Translate (Vector3.back * speed * Time.deltaTime);
+		} else if (Input.GetKey (KeyCode.J)) {
+			minimapCamera.transform.Translate (Vector3.left * speed * Time.deltaTime);
+		} else if (Input.GetKey (KeyCode.L)) {
+			minimapCamera.transform.Translate (Vector3.right * speed * Time.deltaTime);
+		} else if (Input.GetKey (KeyCode.I)) {
+			minimapCamera.transform.Translate (Vector3.up * speed * Time.deltaTime);
+		} else if (Input.GetKey (KeyCode.K)) {
+			minimapCamera.transform.Translate (Vector3.down * speed * Time.deltaTime);
+		}
+
+		//Reset minimapCamera position
+		if (Input.GetKey (KeyCode.M)) {
+			minimapCamera.transform.position = camPos;
+			minimapCamera.transform.rotation = camRot;
+		}
+
 	}
 
 	//Not using this

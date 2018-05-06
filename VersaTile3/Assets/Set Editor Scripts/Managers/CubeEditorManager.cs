@@ -279,7 +279,7 @@ public class CubeEditorManager : MonoBehaviour {
 	*/
 	public void reLoadFileNames(){
 		foreach ( GameObject f in GameObject.FindGameObjectsWithTag("FileButton")){
-			DestroyObject (f);
+			Destroy (f);
 		}
 		LoadFileNames ();
 	}

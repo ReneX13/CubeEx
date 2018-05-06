@@ -52,7 +52,7 @@ public class CubeMenuScript : MonoBehaviour {
 		transform.Find ("Name").GetComponent<InputField>().text = cbs.cube.name;
 		color.Color = cbs.cube.colour;
 		transform.Find ("CubeCount").GetComponent<InputField> ().text = cbs.cube.count.ToString ();
-		cem.dropdownFront.value = 0;//cbs.cube.Front;
+		cem.dropdownFront.value = cbs.cube.Front;
 		cem.dropdownBack.value = cbs.cube.Back;
 		cem.dropdownRight.value = cbs.cube.Right;
 		cem.dropdownLeft.value = cbs.cube.Left;
