@@ -1,16 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Simulation Scripts\CubeView.cs">
     <Files>
-      <File FileName="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs" Line="268" Column="4" />
-      <File FileName="Assets\CubeSystemManager.cs" Line="157" Column="30" />
-      <File FileName="Assets\Prefabs\Prefab Scripts\GlueManager.cs" Line="4" Column="1" />
-      <File FileName="Assets\Set Editor Scripts\Managers\CubeSetManager.cs" Line="116" Column="7" />
-      <File FileName="Assets\Set Editor Scripts\CubeMenuScript.cs" Line="85" Column="24" />
-      <File FileName="Assets\Simulation Scripts\AssemblyManager.cs" Line="135" Column="53" />
+      <File FileName="Assets\Set Editor Scripts\Managers\CubeEditorManager.cs" Line="298" Column="11" />
+      <File FileName="Assets\CubeSystemManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Prefabs\Prefab Scripts\GlueManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Set Editor Scripts\Managers\CubeSetManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Set Editor Scripts\CubeMenuScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Simulation Scripts\AssemblyManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Prefabs\Prefab Scripts\CubeButtonScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Starter.cs" Line="1" Column="1" />
       <File FileName="Assets\Set Editor Scripts\Managers\MainMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Simulation Scripts\MinimapController.cs" Line="37" Column="5" />
+      <File FileName="Assets\Simulation Scripts\Controller.cs" Line="112" Column="29" />
+      <File FileName="Assets\Simulation Scripts\CubeView.cs" Line="55" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

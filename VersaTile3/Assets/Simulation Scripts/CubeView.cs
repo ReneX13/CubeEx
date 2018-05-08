@@ -52,6 +52,7 @@ public class CubeView : MonoBehaviour {
 		myCubeRot = tmpCube.transform.rotation;
 		//tmpCube.layer = layerToShow;
 		tmpCube.SetLayerRecursively(layerToShow);
+		tmpCube.transform.Find ("Sphere").gameObject.layer = 8;
 		tmpCube.name = "SelectedCube";
 		cubeToView.name = "CubeSeen";
 

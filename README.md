@@ -1,7 +1,9 @@
 # VersaTile3D
 
-Simulator for the aTAM in 3D, created using Unity.  
-Final Project for the Molecular Computation course in the UTRGV.  
+Simulator for the aTAM in 3D, created using Unity.
+
+Final Project for the Molecular Computation course in the UTRGV.
+
 Implements:
 
 - Discrete counts
@@ -19,28 +21,53 @@ It has these User features:
 - Save/Load cubeSet and glueSet to/from a file
 
 ---
+
 ## Camera
-#### Assembly
+
+### Assembly
+
 Keys:
+
 - W - Forward
-- A -
-- S -
-- D -
+- A - Left
+- S - Backward
+- D - Right
+- Q - Down
+- E - Up
 - Right-click - Select a cube for single view
-- Mouse scroll - Zoom in/out
+- Mouse scroll - Rotate up/down
+- Arrow keys - Rotation
+- Z - Reset
 
-#### Single view
+Minimap:
+
+- I - Up
+- J - Left
+- K - Down
+- L - Right
+- U - Zoom out
+- O - Zoom in
+- Left-click - Position main camera in front of selected cube
+- M - Reset minimap
+
+### Single view
+
 Keys:
+
 - Left-click + movement - Rotate the cube
+- Mouse scroll - Rotate up/down
 - ESC - Return to assembly view
-- Z - Return cube and camera to original position
-- Mouse scroll - Zoom in/out
+- Z - Reset
 
-#### Editor
+### Editor
+
 Keys:
-- Left-click
+
+- TODO
 
 ---
+
 ## Copyright
+
 This software is under the license...
 Created by Rene Reyes, Ivan Amaya Vazquez and Carlos Peña Caballero.

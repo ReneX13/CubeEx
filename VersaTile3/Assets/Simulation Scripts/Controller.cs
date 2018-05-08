@@ -20,8 +20,8 @@ public class Controller : MonoBehaviour {
 	public float sensX = 100.0f;
 	public float sensY = 100.0f;
 
-	float rotationX = 0.0f;
-	float rotationY = 0.0f;
+	public float rotationX = 0.0f;
+	public float rotationY = 0.0f;
 
 	public bool shift = false;
 	public bool w = false;
@@ -34,7 +34,7 @@ public class Controller : MonoBehaviour {
 		myCamRot = transform.rotation;
 		myCamPos = transform.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -116,7 +116,7 @@ public class Controller : MonoBehaviour {
 		if (Input.GetAxis("Mouse ScrollWheel") != 0){
 			scroll = Input.GetAxis ("Mouse ScrollWheel"); 
 			MoveRotation (0f, scroll);
-			transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
+			Camera.main.transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
 			rotationY = Mathf.Clamp (rotationY, minY, maxY);
 		}
 		//float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -140,7 +140,7 @@ public class Controller : MonoBehaviour {
 			rotationX += Input.GetAxis ("Mouse X") * sensX * Time.deltaTime;
 			rotationY += Input.GetAxis ("Mouse Y") * sensY * Time.deltaTime;
 			rotationY = Mathf.Clamp (rotationY, minY, maxY);
-			transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
+			Camera.main.transform.localEulerAngles = new Vector3 (-rotationY, rotationX, 0);
 		}
 
 		// Optional if you don't want freaky effects...
